@@ -1,9 +1,7 @@
 import random
 
 
-def sort(original, order_by="ASC"):
-    if order_by == "ASC":
-        pass
+def sort(original):
     for i in range(len(original)):
         min_index = i
         for j in range(i+1,len(original)):
