@@ -8,7 +8,7 @@ def find_max(arr):
         arr = arr[1:]
         arr.append(first)
         results.append(get_sum(arr))
-    return max(results), results
+    return max(results)
 
 
 def get_sum(arr_):
