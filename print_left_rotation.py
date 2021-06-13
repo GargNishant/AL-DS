@@ -2,7 +2,6 @@
 
 def left_rotate(arr, k):
     n = len(arr)
-    # k = k % n
     for i in range(n):
         print(arr[(i+k)%n],end=" ")
     print()
