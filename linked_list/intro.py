@@ -54,6 +54,25 @@ class LinkedList:
                 break
             current = current.next
 
+    def get_count_iter(self,node):
+        current = node
+        result = 0
+        while current.next is not None:
+            result += 1
+            current = current.next
+        return result + 1
+
+    def get_count_rec(self,node:Node):
+        if node.next is None:
+            return 1
+        return 1 + self.get_count_rec(node.next)
+
+    def get_count(self, func):
+        if func == 'iter':
+            return self.get_count_iter(self.head)
+        elif func == 'recursive':
+            return self.get_count_rec(self.head)
+
 
 if __name__ == "__main__":
     Llist = LinkedList()
@@ -70,7 +89,5 @@ if __name__ == "__main__":
     Llist.delete_node(0)
     Llist.new_head(Node(0.3))
     Llist.print_list()
-
-
-
-
+    print(f"Recursive count is:{Llist.get_count('recursive')}")
+    print(f"Iterative count is:{Llist.get_count('iter')}")
