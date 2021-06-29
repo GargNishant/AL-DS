@@ -1,6 +1,7 @@
 # https://www.geeksforgeeks.org/find-length-of-loop-in-linked-list/
 from intro import LinkedList, Node
 
+
 class LinkedList_Loop(LinkedList):
 
     def create_loop(self, start_pos):
@@ -13,6 +14,26 @@ class LinkedList_Loop(LinkedList):
                 start = start.next
                 pos += 1
         current.next = start
+
+    def loop_length(self):
+        start = self.loop_start_point()
+        end = start.next
+        counter = 1
+        while not end == start:
+            end = end.next
+            counter += 1
+        return counter
+
+    def loop_start_point(self):
+        slow = self.head.next
+        fast = slow.next
+        if self.head.next is None or self.head.next.next is None:
+            return -1
+        while fast.next is not None or fast is not None:
+            if fast == slow:
+                return fast
+            fast = fast.next.next
+            slow = slow.next
 
 
 if __name__ == "__main__":
@@ -29,4 +50,5 @@ if __name__ == "__main__":
     Llist.append(Node(9))
     Llist.append(Node(10))
     Llist.create_loop(5)
-    Llist.print_list()
+    # Llist.print_list()
+    print(Llist.loop_length())
