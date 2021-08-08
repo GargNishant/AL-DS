@@ -1,15 +1,4 @@
 
-def subsequence(sequence, index=0):
-    if index == len(sequence)-1:
-        return ['',sequence[index]]
-
-    lsf = subsequence(sequence,index+1)
-    element = sequence[index]
-    list_ = []
-    list_.extend(lsf)
-    for item in lsf:
-        list_.append(element+item)
-    return list_
 
 def subs(seq):
     if len(seq) == 0:
